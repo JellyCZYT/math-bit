@@ -1,20 +1,41 @@
+function Sub () {
+    basic.showNumber(A - B)
+}
 input.onButtonPressed(Button.A, function () {
-    if (Mode == 0) {
-        A += 1
-    }
-    if (Mode == 1) {
-        B += 1
+    if (!(Start == 69)) {
+        Mode += 1
+    } else {
+        if (Num == 0) {
+            A += 1
+        }
+        if (Num == 1) {
+            B += 1
+        }
     }
 })
-let Mode = 0
-let A = 0
+function Add () {
+    basic.showNumber(A + B)
+}
+let Start = 0
+let Num = 0
 let B = 0
-Mode = 0
+let A = 0
+let Mode = 0
+basic.showIcon(IconNames.Happy)
+while (!(input.buttonIsPressed(Button.B))) {
+    basic.showNumber(Mode)
+}
+basic.showIcon(IconNames.Yes)
+basic.pause(1000)
+A = 0
+B = 0
+Num = 0
+Start = 69
 while (!(input.buttonIsPressed(Button.B))) {
     basic.showNumber(A)
 }
 basic.showIcon(IconNames.Yes)
-Mode = 1
+Num = 1
 basic.pause(2000)
 while (!(input.buttonIsPressed(Button.B))) {
     basic.showNumber(B)
@@ -29,4 +50,8 @@ basic.showLeds(`
     . . . . .
     `)
 basic.pause(2000)
-basic.showNumber(A + B)
+if (Mode == 0) {
+    Add()
+} else if (Mode >= 1) {
+    Sub()
+}
