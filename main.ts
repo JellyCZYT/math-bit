@@ -1,6 +1,12 @@
 function Sub () {
     basic.showNumber(A - B)
 }
+function Power () {
+    basic.showNumber(A ** B)
+}
+function Mul () {
+    basic.showNumber(A * B)
+}
 input.onButtonPressed(Button.A, function () {
     if (!(Start == 69)) {
         Mode += 1
@@ -13,6 +19,9 @@ input.onButtonPressed(Button.A, function () {
         }
     }
 })
+function Div () {
+    basic.showNumber(A / B)
+}
 function Add () {
     basic.showNumber(A + B)
 }
@@ -52,6 +61,12 @@ basic.showLeds(`
 basic.pause(2000)
 if (Mode == 0) {
     Add()
-} else if (Mode >= 1) {
+} else if (Mode == 1) {
     Sub()
+} else if (Mode == 2) {
+    Mul()
+} else if (Mode == 3) {
+    Div()
+} else {
+    Power()
 }
